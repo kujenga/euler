@@ -1,0 +1,3 @@
+Just use pascal's triangle. The 40th row in the middle is the answer.
+
+Pascal's triangle can be used to find the path's through any lattice

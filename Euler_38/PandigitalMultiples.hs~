@@ -1,0 +1,4 @@
+import Data.List
+
+isPandigital str = if sort str == ['1'..'9'] then True else False
+

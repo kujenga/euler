@@ -1,0 +1,19 @@
+public class PalinProduct {
+
+    private bool isPalindromic(int i)
+    {
+	bool is;
+	String str = "" + i;
+	for (int i 
+    }
+
+    public static void main(String[] args)
+    {
+	for (int x = 0; x < 1000; x++) {
+	    for (int y = 0; y < 1000; y++) {
+		
+	    }
+	}
+    }
+
+}

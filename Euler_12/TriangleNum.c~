@@ -1,0 +1,12 @@
+#include <stdlib.h>
+
+int triangleNumRec (int which)
+{
+  if (which == 0) return 0;
+  else return which + triangleNumRec(which-1);
+}
+
+int main(int argc, char** argv)
+{
+  printf("num 7: %1", triangleNumRec(7));
+}

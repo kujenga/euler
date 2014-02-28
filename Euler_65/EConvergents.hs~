@@ -1,0 +1,3 @@
+
+recCntdFraction :: 
+recCntdFraction d n l = 

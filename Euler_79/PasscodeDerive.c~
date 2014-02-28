@@ -1,0 +1,73 @@
+// (c) 2013 Aaron M. Taylor
+// This program provides the solution to Project Euler problem 79
+
+#import <stdio.h>
+
+#define size 10
+
+int unreachable( int am[size][size] );
+int bfShortest( int am[size][size], int start );
+
+int main(int argc, char** argv)
+{
+  FILE* f = fopen("keylog.txt","r");
+  // adjacency matrix of form [source] [destination]
+  int** keysAM = malloc ((sizeof(;
+  int cur;
+  for (int i = 0; EOF != fscanf(f,"%d",&cur); i++ ) {
+    //each entry is three digits, so two adjacencies need to be recorded
+    //3rd digit to 2nd digit
+    keysAM[cur/100][(cur/10)%10]++;
+    //2nd digit to 1st digit
+    keysAM[(cur/10)%10][cur%10]++;
+  }
+  fclose(f);
+  //int start = unreachable(keysAM);
+  
+  for (int x = 0; x < size; x++) {
+    for (int y = 0; y < size; y++) {
+      printf("%d ",keysAM[x][y]);
+    }
+    puts("");
+  }
+  
+}
+
+//uses a breadth-first search to find the shortest path
+int bfShortest( int am[size][size], int start ) {
+  int result = start;
+  int queue[100];
+  int qf = 0; // first element in the queue
+  int ql = 0; // last element in the queue
+  while ( 1 ) {
+    // adds source nodes to the queue
+    for ( int i = 0; i < size; i++ ) {
+      break;
+    }
+  }
+  return 0;
+}
+
+int pathsAhead( int am[size][size], int dst ) {
+  int paths = 0;
+  //cycles through the destination column to see if there is anywhere else to go
+  for (int i = 0; i < size; i++) {
+    if (am[i][dst]) paths++;
+  }
+  return paths;
+}
+
+// finds the first unreachable destination in the adjacency matrix
+int unreachable( int am[size][size] )
+{
+  for ( int dst = 0; dst < size; dst++ ) {
+    int src;
+    for ( src = 0; src < size; src++ ) {
+      if ( am[src][dst] )
+	break;
+    }
+    if (src == size)
+      return dst;
+  }
+  return -1;
+}

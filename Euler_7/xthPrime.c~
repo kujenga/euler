@@ -1,0 +1,10 @@
+# include <sdtio.h>
+
+int main(int argc, char** argv)
+{
+  int whichPrime = atoi(char[1]);
+
+  printf("inputted number: %i\n",whichPrime);
+  
+
+}

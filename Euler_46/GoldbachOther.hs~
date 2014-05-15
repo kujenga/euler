@@ -1,6 +1,0 @@
-isPrime :: Num -> Bool
-
-primesBelow :: _ -> [Num]
-
-gbMakeup :: Num -> (Int,Int)
-gbMakeup n = [ (p,s) | p <- PrimesBelow n/2, s <- [1..(floor (sqrt n))/2] ]

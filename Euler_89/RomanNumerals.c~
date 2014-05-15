@@ -1,8 +1,0 @@
-#import <stdio.h>
-#import <stdlid.h>
-
-
-int main (int argc, char** argv)
-{
-  
-}

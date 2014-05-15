@@ -14,7 +14,6 @@ int digitSquareSum ( int n ) {
 }
 
 int chainDest ( int n ) {
-  //printf("%d\n",n);
   if ( n == 1 )
     return 1;
   else if ( n == 89 )

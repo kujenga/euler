@@ -1,27 +1,26 @@
 #!/usr/bin/ruby
 
+# (c) 2014 Aaron M. Taylor
+# solution to project euler problem 24
+# what is the millionth lexicographic permutiation of the digits 0-9?
+
 def to_num(arr)
   arr.inject {|n,d| n*10 + d}
 end
 
-def sort_part(arr,start)
-  start.upto(arr.length - 1) do |i|
-    value = arr[i]
-    j = i + 1
-    while j < arr.length and arr[j] < value
-      arr[j-1] = arr[j]
-      j += 1
-    end
-    arr[j-1] = value
+def reverse_part(arr,start)
+  ending = arr.length-1
+  while start <= ending
+    arr[start],arr[ending] = arr[ending],arr[start]
+    start += 1
+    ending -= 1
   end
-  arr
 end
 
 perm = (0...ARGV[0].to_i).to_a
 c = 1
-#STDOUT.write "\r#{perm}"
-puts(to_num(perm))
-while c < 1000001 and !(perm.each_cons(2).all? { |a, b| (b <=> a) <= 0 })
+STDOUT.write "\r#{to_num(perm)}"
+while c < 1000000 and !(perm.each_cons(2).all? { |a, b| (b <=> a) <= 0 })
   k = 0
   for i in (0...perm.length-1)
     if perm[i] < perm[i+1] then k = i end
@@ -31,10 +30,8 @@ while c < 1000001 and !(perm.each_cons(2).all? { |a, b| (b <=> a) <= 0 })
     if perm [i] > perm[k] && perm[i] < perm[l] then l = i end
   end
   perm[k],perm[l] = perm[l],perm[k]
-  sort_part(perm,fst+1)
-  puts(to_num(perm))
-  #STDOUT.write "\r#{perm}"
+  reverse_part(perm,k+1)
+  STDOUT.write "\r#{to_num(perm)}"
   c += 1
 end
 puts()
-puts("#{to_num(perm)} : #{c}")

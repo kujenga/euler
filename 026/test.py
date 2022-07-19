@@ -16,6 +16,7 @@ class TestMain(unittest.TestCase):
             (5, -1),
             (6, 1),
             (7, 6),
+            (997, 166),
         ]:
             frac = str_for_frac(i)
             got = repeating_seq_len(frac)

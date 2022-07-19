@@ -1,7 +1,11 @@
 """
 https://projecteuler.net/problem=26
 """
+import logging
 from decimal import Decimal, getcontext
+
+
+logging.basicConfig(level=logging.INFO)
 
 
 def repeating_seq_len(s):
@@ -14,11 +18,20 @@ def repeating_seq_len(s):
             # iteration.
             target = s[idx - lookback:idx]
             # Basic check if the target is repeated going forward.
-            repeat1 = s[idx:idx + len(target)]
-            if target != repeat1:
-                continue
-            repeat2 = s[idx + len(target):idx + 2*len(target)]
-            if target != repeat2:
+            repeats = True
+            repeatIdx = 0
+            while True:
+                start = idx + repeatIdx * len(target)
+                end = idx + (repeatIdx + 1) * len(target)
+                if end + 1 > len(s):
+                    # It repeats through the end of the string
+                    break
+                val = s[start:end]
+                if val != target:
+                    repeats = False
+                    break
+                repeatIdx += 1
+            if not repeats:
                 continue
 
             return len(target)
@@ -30,8 +43,9 @@ def str_for_frac(i):
 
 
 def main():
+
     # Extended precision to find cycles accurately.
-    getcontext().prec = 100000
+    getcontext().prec = 1000000
 
     lMax = -1
     iMax = -1
@@ -41,7 +55,8 @@ def main():
         if seqLen > lMax:
             lMax = seqLen
             iMax = i
-        print(f'1/{i}: {seqLen}')
+        logging.debug(f'1/{i}: {frac}')
+        logging.info(f'1/{i}: {seqLen}')
     print(f'Longest: {lMax}, for 1/{iMax}')
 
 

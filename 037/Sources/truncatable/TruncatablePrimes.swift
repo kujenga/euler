@@ -5,28 +5,7 @@
  * https://github.com/apple/example-package-dealer
  */
 
-var primes = Set<Int>([]);
-
-func isPrime(_ i: Int) -> Bool {
-    if primes.contains(i) {
-        return true;
-    }
-    if i <= 1 {
-        return false;
-    }
-    if i == 2 {
-        return true;
-    }
-    for v in 2...(i/2+1) {
-        if i%v == 0 {
-            /* print("not prime!: \(i)%\(v) == 0"); */
-            return false;
-        }
-    }
-    /* print("prime discovered: \(i)") */
-    primes.insert(i);
-    return true;
-}
+import Euler
 
 func digits(_ n: Int) -> UInt {
     var i = n;
@@ -54,14 +33,14 @@ func isTruncatable(_ i: Int) -> Bool {
     for n in 1...count {
         // Check n leftmost digits
         let lm = i / pow(10, count - n);
-        if !isPrime(lm) {
+        if !lm.isPrime() {
             /* print("lm not prime: \(lm) for: \(i)") */
             return false;
         }
 
         // Check n rightmost digits
         let rm = i % pow(10, n);
-        if !isPrime(rm) {
+        if !rm.isPrime() {
             /* print("rm not prime: \(rm) for \(i)") */
             return false;
         }

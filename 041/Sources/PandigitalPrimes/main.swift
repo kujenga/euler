@@ -2,14 +2,6 @@
 
 import Euler
 
-func toInt(_ digits: [Int]) -> Int {
-    var v = 0;
-    for (index, digit) in digits.enumerated() {
-        v += digit * pow(10, index)
-    }
-    return v;
-}
-
 var largest = 0;
 
 for N in 1...9 {
@@ -44,7 +36,7 @@ for N in 1...9 {
             i += 1
         }
 
-        let x = toInt(a)
+        let x = digitsToInt(a)
         if x.isPrime() {
             print("is prime: \(x)")
             if x > largest {

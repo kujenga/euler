@@ -1,5 +1,5 @@
 Command:
 
 ```
-swift run truncatable
+swift run
 ```

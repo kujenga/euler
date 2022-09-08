@@ -7,23 +7,17 @@
 
 import Euler
 
-func digits(_ n: Int) -> UInt {
+func digits(_ n: Int) -> Int {
     var i = n;
     if i == 0 {
         return 1;
     }
-    var count: UInt = 0;
+    var count: Int = 0;
     while i != 0 {
         i /= 10;
         count += 1;
     }
     return count
-}
-
-func pow(_ base: Int, _ power: UInt) -> Int {
-  var answer : Int = 1
-  for _ in 0..<power { answer *= base }
-  return answer
 }
 
 func isTruncatable(_ i: Int) -> Bool {

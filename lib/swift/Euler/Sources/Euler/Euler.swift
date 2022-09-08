@@ -1,4 +1,8 @@
+import Foundation
+
+// Helper functions on the Int type.
 extension Int {
+    // Check if a number is prime, efficiently.
     public func isPrime() -> Bool {
         if self == 2 || self == 3 {
             return true;
@@ -16,3 +20,12 @@ extension Int {
         return true;
     }
 }
+
+// Helper to allow for exponentiation on integers directly. Required because
+// Decimal cannot cast directly to Int.
+public func pow(_ base: Int, _ power: Int) -> Int {
+    // Call into Foundation function.
+    let r = pow(Decimal(base), power)
+    return NSDecimalNumber(decimal: r).intValue;
+}
+

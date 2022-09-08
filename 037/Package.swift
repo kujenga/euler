@@ -6,10 +6,16 @@ let package = Package(
       products: [
         .executable(name: "truncatable", targets: ["truncatable"]),
     ],
-  dependencies: [],
+  dependencies: [
+    .package(path: "../lib/swift/Euler"),
+  ],
   targets: [
     .executableTarget(
-      name: "truncatable"
+      name: "truncatable",
+      dependencies: [
+        /* .product(name: "Numerics", package: "swift-numerics"), */
+        "Euler"
+      ]
     )
   ]
 )

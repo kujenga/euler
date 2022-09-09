@@ -29,10 +29,14 @@ public func pow(_ base: Int, _ power: Int) -> Int {
     return NSDecimalNumber(decimal: r).intValue;
 }
 
-// Converts an array of base 10 digits into an Int.
 public func digitsToInt(_ digits: [Int], base: Int = 10) -> Int {
+   digitsToInt(digits[...], base: base)
+}
+
+// Converts an array of base 10 digits into an Int.
+public func digitsToInt(_ digits: ArraySlice<Int>, base: Int = 10) -> Int {
     var v = 0;
-    for (index, digit) in digits.enumerated() {
+    for (index, digit) in digits.reversed().enumerated() {
         v += digit * pow(base, index)
     }
     return v;

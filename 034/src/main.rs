@@ -9,7 +9,7 @@ fn factorial(x: i32) -> i32 {
     if x < 1 {
         return 1;
     }
-    return x * factorial(x-1);
+    return x * factorial(x - 1);
 }
 
 #[test]
@@ -21,7 +21,7 @@ fn sum_digit_facts(x: i32) -> i32 {
     let mut sum = 0;
     let mut v = x;
     while v > 0 {
-        sum += factorial(v%10); 
+        sum += factorial(v % 10);
         v = v / 10;
     }
     sum
